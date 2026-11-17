@@ -147,7 +147,11 @@ section LZMA_ELF00
 
 
 section LZMA_DEC10
+#ifdef UPX_MICRO_LZMA_DEC10
+#include "lzma_d_micro_x86.S"
+#else
 #include "lzma_d_cs.S"
+#endif
 
 section LZMA_DEC20
 #include "lzma_d_cf.S"

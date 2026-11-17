@@ -261,6 +261,11 @@ unsigned Packer::getDecompressorWrkmemSize() const {
         // FIXME - this is for i386 only
         size = 8 + 4 + ALIGN_UP(2 * res->num_probs, 4u);
         size = ALIGN_UP(size, 16u);
+        if (ph.format == UPX_F_W32PE_I386 && opt->small) {
+            // The experimental i386 Win32 micro decoder initializes 8192
+            // 16-bit probabilities for the fixed lc=3, lp=0, pb=2 model.
+            size = UPX_MAX(size, ALIGN_UP(8 + 4 + 2 * 8192u, 16u));
+        }
     }
     assert((int) size >= 0);
     return size;

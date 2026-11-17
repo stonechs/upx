@@ -156,6 +156,12 @@ static bool prepare_result(lzma_compress_result_t *res, unsigned src_len, int me
         }
     }
 
+    // The experimental micro-LZMA stubs require the default property tuple;
+    // keep the encoder output in that subset.
+    res->pos_bits = 2;
+    res->lit_pos_bits = 0;
+    res->lit_context_bits = 3;
+
     lzma_compress_config_t::pos_bits_t::assertValue(res->pos_bits);
     lzma_compress_config_t::lit_pos_bits_t::assertValue(res->lit_pos_bits);
     lzma_compress_config_t::lit_context_bits_t::assertValue(res->lit_context_bits);
