@@ -15,7 +15,7 @@ The directory layout follows the UPX repository: modified files are under `src/`
 - Win32 i386 `DEC10` micro-LZMA body: 547 bytes (`0x223`), down from 2,878 bytes (`0xB3E`); `DEC20` is unchanged.
 - `--small --lzma` on the 58,880-byte smoke PE produced a 29,696-byte EXE; `upx -t` passed, and execution returned 0 with output `tbox\maco`.
 - Normal `--lzma` control (DEC20) produced a 32,256-byte EXE; `upx -t` and runtime execution passed.
-- The included supplemental 5 KB PE size experiment and logs are in `Test/Snapshots/micro-lzmadec-x86-dec10-20261117.zip`.
+- The supplemental 5 KB PE size experiment measured 5,089 -> 4,065 bytes with `--small --lzma` and overlay copy, and 5,089 -> 2,048 bytes with `--small --lzma --overlay=strip`. Generated test executables and packed archives are intentionally excluded from this source snapshot.
 
 ## Build note
 
