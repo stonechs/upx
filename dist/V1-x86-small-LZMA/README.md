@@ -5,7 +5,7 @@ This directory snapshots the source changes and build inputs for the experimenta
 ## Source revision
 
 - Upstream base: `upx/upx` `devel` at `932ea7f4852c7642ce1821200a5c35168db21437`
-- V1 branch: `stonechs/upx`, `experiment/i386-micro-lzma-dec10`
+- V1 branch: `stonechs/upx`, `devel`
 - V1 commit: `8ac1bf13527cd32da47fc92db17d9677d55af42a`
 
 The directory layout follows the UPX repository: modified files are under `src/`, project build entry points are at the root, helper scripts and stub Makefiles are under their original `src/` and `misc/` paths, and the test archive is under `Test/Snapshots/`. `V1-source.patch` contains the source diff against the upstream base. Build scripts are reference copies from the base revision; V1 did not modify them.
