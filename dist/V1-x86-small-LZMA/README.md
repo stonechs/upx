@@ -8,14 +8,14 @@ This directory snapshots the source changes and build inputs for the experimenta
 - V1 branch: `stonechs/upx`, `experiment/i386-micro-lzma-dec10`
 - V1 commit: `8ac1bf13527cd32da47fc92db17d9677d55af42a`
 
-`source/` contains the modified files with their repository-relative paths. `V1-source.patch` contains the source diff against the upstream base. `build-scripts/` contains the project and stub build entry points plus the helper scripts used by the stub pipeline. Those build scripts are reference copies from the base revision; V1 did not modify them.
+The directory layout follows the UPX repository: modified files are under `src/`, project build entry points are at the root, helper scripts and stub Makefiles are under their original `src/` and `misc/` paths, and the test archive is under `Test/Snapshots/`. `V1-source.patch` contains the source diff against the upstream base. Build scripts are reference copies from the base revision; V1 did not modify them.
 
 ## Decoder and validation
 
 - Win32 i386 `DEC10` micro-LZMA body: 547 bytes (`0x223`), down from 2,878 bytes (`0xB3E`); `DEC20` is unchanged.
 - `--small --lzma` on the 58,880-byte smoke PE produced a 29,696-byte EXE; `upx -t` passed, and execution returned 0 with output `tbox\maco`.
 - Normal `--lzma` control (DEC20) produced a 32,256-byte EXE; `upx -t` and runtime execution passed.
-- The included supplemental 5 KB PE size experiment and logs are in `verification/micro-lzmadec-x86-dec10-20261117.zip`.
+- The included supplemental 5 KB PE size experiment and logs are in `Test/Snapshots/micro-lzmadec-x86-dec10-20261117.zip`.
 
 ## Build note
 
